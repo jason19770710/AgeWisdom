@@ -1,0 +1,754 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+footer,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+footer,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 顯示所有物件的外框線
+*{
+	outline:1px solid #000;
+}
+*/
+
+*, *::before, *::after{ box-sizing: border-box;}
+
+html {
+	position: relative;
+	background: url(../img/bg_s.jpg) ;
+  }
+html::before {
+	content: "";
+	position:absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background: url(../img/bg_main.png) no-repeat center top;
+	filter: blur(8px);
+	opacity: 0.8;
+	animation: bgFade 8s infinite ease-in-out;
+	z-index: -99;
+}
+
+
+@keyframes bgFade {
+	0%   { filter: blur(3px);opacity: 0.8;  }
+	40%  { filter: none;opacity: 1;  }
+	60%  { filter: none;opacity: 1;  }
+	100% { filter: blur(3px);opacity: 0.8;  }
+}
+
+
+.wrap {
+	width: 932px;
+	margin: 0 auto;
+}
+.main{
+	display: flex;	
+}
+.main-title {
+	width: 480px;
+	height: 480px;
+}
+.main-title img{
+	width: 100%;
+	height: 100%;
+}
+.main-swiper{
+	width: 452px;
+	height: 480px;
+}
+.main-swiper img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/* 版頭標題 動態效果設定 > 浮動動畫（上下來回 10px） */
+@keyframes floatUpDown {
+	0%   { transform: translateY(0); }
+	50%  { transform: translateY(-10px); }
+	100% { transform: translateY(0); }
+ }
+  
+@keyframes breathing {
+	0%   { transform: scale(1); opacity: 1; }
+	50%  { transform: scale(1.02); opacity: 0.95; }
+	100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* 版頭標題 動態效果設定 > 套用持續浮動動畫 */
+  .main-title img {
+	animation: floatUpDown 2s ease-in-out infinite;
+  }
+  /* 套用心跳感加到圖片上
+  .main-title img {
+    animation: breathing 1s ease-in-out infinite;  
+  }*/
+
+  /* 版頭標題 動態效果設定 > 搖晃 + 閃爍動畫（每 10 秒觸發一次） */
+  @keyframes flashShake {
+	0%   { filter: none; transform: translate(0, 0); }
+	10%  { filter: brightness(800%); transform: translate(-4px, 0); }
+	20%  { filter: none; transform: translate(4px, 0); }
+	30%  { filter: brightness(800%); transform: translate(0, -4px); }
+	40%  { filter: none; transform: translate(0, 4px); }
+	100% { filter: none; transform: translate(0, 0); }
+  }
+  
+  /* 版頭標題 動態效果設定 > 短暫閃爍 + 晃動 class，透過 jQuery 加入 */
+  .flash-shake {
+	animation: flashShake 0.6s ease-in-out !important;
+  }
+
+
+
+
+/* Ｗin11 6大特色 */
+.win11 {
+	display: flow-root;
+	width: 100%;
+}
+.win11 ul li{
+	float: left;
+}
+.win11-title img{
+	width: 100%;
+}
+.win11-sp1{
+	width: 466px;
+}
+ /* Ｗin11 6大特色動態效果設定 > Win11 標題閃爍動畫+下移 */
+ @keyframes flashTitle {
+	  0%   { transform: translate(0, -10px);filter: none;opacity: 0;  }
+	  5%   { transform: translate(0, -10px);filter: none;opacity: 1;  }
+	  15%  { transform: translate(0, -10px);filter: brightness(500%); }
+	  25%  { transform: translate(0, -10px);filter: none; }
+	  35%  { transform: translate(0, -10px);filter: brightness(500%); }
+	  45%  { transform: translate(0, -10px);filter: none; }
+	  100% { transform: translate(0, 0px);filter: none; }	  
+  }
+ .win11-title img {
+	animation: flashTitle 1s ease-in-out !important;
+  }
+
+/* Ｗin11 6大特色動態效果設定 > 特色從左右依序進入＋閃爍二次 */
+@keyframes fadeShow-L {
+	0%   { transform: translate(-1500px, 0); opacity: 0; }
+	80% { transform: translate(0, 0); opacity: 1; }
+	81% { filter: none; }
+	85% { filter: brightness(500%); }
+	90% { filter: none; }
+	95% { filter: brightness(500%); }
+	100% { filter: none; }
+  }
+@keyframes fadeShow-R {
+	0%   { transform: translate(1500px, 0); opacity: 0; }
+	80% { transform: translate(0, 0); opacity: 1; }
+	81% { filter: none; }
+	85% { filter: brightness(500%); }
+	90% { filter: none; }
+	95% { filter: brightness(500%); }
+	100% { filter: none; }
+ }
+
+.win11-sp1 img {
+	animation: fadeShow-L 1s ease-in-out;
+	animation-delay: 0s;
+	animation-fill-mode: both;
+}
+.win11-sp2 img {
+	animation: fadeShow-R 1s ease-in-out;
+	animation-delay: 0.25s;
+	animation-fill-mode: both;
+}
+.win11-sp3 img {
+	animation: fadeShow-L 1s ease-in-out;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+}
+.win11-sp4 img {
+	animation: fadeShow-R 1s ease-in-out;
+	animation-delay: 0.75s;
+	animation-fill-mode: both;
+}
+.win11-sp5 img {
+	animation: fadeShow-L 1s ease-in-out;
+	animation-delay: 1s;
+	animation-fill-mode: both;
+}
+.win11-sp6 img {
+	animation: fadeShow-R 1s ease-in-out;
+	animation-delay: 1.25s;
+	animation-fill-mode: both;
+}
+
+
+/* 618強檔活動區 */
+.event {
+	display: flow-root;
+	width: 100%;
+	position: relative;
+	margin-top: 150px;	
+}
+.event ul li{
+	float: left;
+}
+/* 618強檔活動區 12個活動  動態效果設定 > 變亮＋上移 */
+@keyframes eventMouseover {
+	0%   { transform: scale(1)  translate(0, 0) ; filter: none;  }
+	50%  { transform: scale(1.05)  translate(0, -10px) ; filter: none; }
+	55%  { transform: scale(1.05)  translate(0, -10px) ; filter: brightness(500%); }
+	60%  { transform: scale(1.05)  translate(0, -10px) ; filter: none; }
+	65%  { transform: scale(1.05)  translate(0, -10px) ; filter: brightness(500%);  }
+	100% { transform: scale(1.05)  translate(0, -10px) ; filter: brightness(150%);  }	  
+}
+.event img:hover {
+	animation: eventMouseover 0.4s ease-in-out forwards !important;
+}
+.event-frame {
+    position: absolute;
+    width: 1019px;
+    height: 757px;
+    background: url(../img/event_frame.png);
+    background-size: cover;
+    top: -110px;
+    left: -44px;
+    z-index: -1;
+    opacity: 0;
+}
+.event li{
+	opacity: 0;
+}
+
+/* 618強檔活動區框  動態效果設定 > 由小變大） */
+@keyframes eventframeScale {
+	0%   { transform: scale(0.1); opacity: 1; }
+	100% { transform: scale(1); opacity: 1; }
+  }
+
+ .eventframeScale{
+    animation: eventframeScale 1s ease-in-out forwards;
+}
+
+/* 618強檔活動區 12個活動  動態效果設定 > 閃爍出現 */
+@keyframes eventFlash {
+	0%   { transform: translate(0, 0);filter: none;opacity: 0;  }
+	5%   { transform: translate(0, 0);filter: none;opacity: 1;  }
+	15%  { transform: translate(0, 0);filter: brightness(200%);opacity: 1; }
+	25%  { transform: translate(0, 0);filter: none;opacity: 1; }
+	35%  { transform: translate(0, 0);filter: brightness(200%);opacity: 1; }
+	100% { transform: translate(0, 0);filter: none; opacity: 1; }	  
+}
+.eventFlash {
+  animation: eventFlash 0.5s ease-in-out forwards !important;
+}
+
+/* 影片 */
+.video{
+    width: 100%;
+	position:relative;
+	margin-top: 40px;
+}
+
+.video-title{
+    position: absolute;
+    width: 932px;
+    height: 148px;
+    background: url(../img/video_title.png);
+    background-size: cover;
+}
+.video-YT {
+    position: relative;
+	display:flex;
+	justify-content: center;
+    padding-bottom: 56.25%; /* 16:9比例 */
+    height: 0;
+    overflow: hidden;
+	top: 80px;
+  }
+.video-YT iframe {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+  }
+
+/* 館長推薦 暢銷筆電  */
+  .sale{
+    width: 100%;
+	position:relative;
+	margin-top: 100px;
+	z-index: 10;
+}
+.sale-title{
+    position: absolute;
+    width: 1258px;
+    height: 73px;
+    background: url(../img/saleNB_title.png);
+    background-size: cover;
+	top: -90px;
+    left: -164px;
+    z-index: -1;
+}
+/* 館長推薦 暢銷筆電 態效果設定 > 標題閃爍動畫+下移 */
+@keyframes sale_titleMove {
+	0%   { transform: translate(0, -10px);filter: none;opacity: 0;  }
+	5%   { transform: translate(0, -10px);filter: none;opacity: 1;  }
+	15%  { transform: translate(0, -10px);filter: brightness(500%); }
+	25%  { transform: translate(0, -10px);filter: none; }
+	35%  { transform: translate(0, -10px);filter: brightness(500%); }
+	45%  { transform: translate(0, -10px);filter: none; }
+	100% { transform: translate(0, 0px);filter: none; }	  
+}
+
+.sale_titleMove {
+	animation: sale_titleMove 1s ease-in-out forwards;
+}
+
+
+.sale li{
+	opacity: 0;
+	margin-bottom: 14px;
+}
+.sale-content-big li{
+	width: 466px;
+	height: 360px;
+    float: left;
+}
+.sale li a {
+	display: block;
+	width: 100%;
+} 
+.sale-1 a {
+	background: url(../img/saleNB_b_bg01.jpg);
+}
+.sale-2 a {
+	background: url(../img/saleNB_b_bg02.jpg);
+}
+.sale-3 a {
+	background: url(../img/saleNB_b_bg03.jpg);
+}
+.sale-4 a {
+	background: url(../img/saleNB_b_bg04.jpg);
+}
+
+.sale-content-small li{
+	width: 233px;
+	height: 360px;
+    float: left;
+}
+.sale-5 a {
+	background: url(../img/saleNB_s_bg01.jpg);
+}
+.sale-6 a {
+	background: url(../img/saleNB_s_bg02.jpg);
+}
+.sale-7 a {
+	background: url(../img/saleNB_s_bg03.jpg);
+}
+.sale-8 a {
+	background: url(../img/saleNB_s_bg04.jpg);
+}
+
+/* 館長推薦 暢銷筆電 動態效果設定 > saleFadeIn */
+@keyframes saleFadeIn {
+	0%   { transform: translate(0,100px); opacity: 0;  }
+	100% { transform: translate(0, 0); opacity: 1; }	  
+}
+.saleFadeIn {
+  animation: saleFadeIn 0.5s ease-in-out forwards !important;
+}
+
+/* 館長推薦 暢銷筆電 動態效果設定 > 上移10px */
+@keyframes saleMouseover {
+	0%   { transform: translate(0, 0) ;   }
+	100% { transform: translate(0, -16px) ;  }	  
+}
+.sale li a:hover {
+	animation: saleMouseover  0.4s ease-in-out forwards !important;
+}
+
+/* 館長推薦 暢銷筆電  動態效果設定 > 閃爍＋上下移10px */
+@keyframes sale_imgMove {
+	0%   { transform: scale(1) translate(0, 0);filter: none;opacity: 1;  }
+	5%   { transform: scale(1.1) translate(0, 0);filter: brightness(200%); opacity: 1; }
+	10%  { transform: translate(0, 0);filter: none;opacity: 1; }
+	15%  { transform: translate(0, 0);filter: brightness(200%); }
+	50%  { transform: translateY(-10px);opacity: 1;  }
+	100% { transform: translateY(0);opacity: 1;  }
+ }
+.sale-content-big img:hover {
+	animation: sale_imgMove 1.3s ease-in-out infinite;
+}
+.sale-content-small img:hover {
+	animation: sale_imgMove 1.3s ease-in-out infinite;	
+}
+
+
+
+
+
+/* 版身商品 */
+.product {
+    width: 100%;
+	color: #000;
+	margin-bottom: 20px;
+}
+
+.product-title-1,.product-title-2,
+.product-title-3,.product-title-4 {
+	width: 100%;
+	margin-bottom: 1em;
+}
+.product  ul {
+   display: flex;
+   justify-content: space-around;
+}
+
+.product  li {
+    width: 220px;	
+	opacity: 0; 
+}
+.product  li  a{
+	display: block;
+    width: 220px;	
+	background: #fff;
+	text-decoration: none;
+}
+.product  img {
+	width: 100%;
+
+}
+.product  h3 {
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 150%;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	margin: 4px;
+}
+
+.product  h2 {
+	font-size: 18px;
+	line-height: 150%;
+	color: #000;
+	text-align: center;
+	margin: 4px;
+}
+.price {
+	display: flex;
+	justify-content: center;
+}
+.price_original {
+	line-height: 55px;
+	color: rgb(145, 144, 144);
+	text-decoration:line-through;
+	margin-right: 4px;
+}
+.price_symbol {
+	font-weight: 700;
+	line-height: 55px;
+	color: #ee37fa;
+}
+.price_special {
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 150%;
+	color: #ee37fa;
+}
+/* 版身商品 動態效果設定 > productFadeIn */
+@keyframes productFadeIn {
+	0%   { transform: translate(0,100px); opacity: 0;  }
+	100% { transform: translate(0, 0); opacity: 1; }	  
+}
+.productFadeIn {
+	animation: productFadeIn 0.5s ease-in-out forwards !important;
+  }
+
+/* 版身商品 動態效果設定 > 上移10px */
+  @keyframes productMouseover {
+	0%   { transform: translate(0, 0) ;   }
+	100% { transform: translate(0, -10px) ;  }	  
+}
+.productMove-1  li a:hover {
+	border: 3px solid #20d8fe;
+	animation: productMouseover  0.4s ease-in-out forwards !important;
+}
+.productMove-1  li a:hover h3 {
+	background: #20d8fe;
+}
+.productMove-2  li a:hover {
+	border: 3px solid #ee37fa;
+	animation: productMouseover  0.4s ease-in-out forwards !important;
+}
+.productMove-2 li a:hover h3 {
+	background: #ee37fa;
+}
+.productMove-3  li a:hover {
+	border: 3px solid #8cf96a;
+	animation: productMouseover  0.4s ease-in-out forwards !important;
+}
+.productMove-3 li a:hover h3 {
+	background: #8cf96a;
+}
+.productMove-4 li a:hover {
+	border: 3px solid #f9d66a;
+	animation: productMouseover  0.4s ease-in-out forwards !important;
+}
+.productMove-4 li a:hover h3 {
+	background: #f9d66a;
+}
+/* 版身商品 動態效果設定 > 閃爍 */
+@keyframes product_imgMove {
+	0%   { transform: translate(0, 0);filter: none;opacity: 1;  }
+	5%   { transform: translate(0, 0);filter: brightness(200%); opacity: 1; }
+	10%  { transform: translate(0, 0);filter: none;opacity: 1; }
+	15%  { transform: translate(0, 0);filter: brightness(200%); }
+	100% { transform: translateY(0);opacity: 1;  }
+ }
+.product a:hover img {
+	animation: product_imgMove 1.3s ease-in-out infinite;
+}
+
+
+
+.bg-animation-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events:none;
+	z-index: -99;
+  }
+  
+  .bg-shape {
+	position: absolute;
+	width: 5px;
+	height: 10px;
+	background-color: pink;
+	opacity: 0.8;
+	animation: floatUp ease-in-out forwards;
+  }
+  
+  @keyframes floatUp {
+	0% {
+	  transform: translateY(0);
+	  opacity: 0.8;
+	}
+	50% {
+	  opacity: 0.4;
+	}
+	100% {
+	  transform: translateY(-500px);
+	  opacity: 0;
+	}
+  }
+
+
+/* 側邊選單 */
+  .sidebar {
+	opacity: 0;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 176px;
+	height: 367px;
+	background-image: url('../img/slide_list.png'); /* 替換成你的圖片路徑 */
+	background-size: cover;
+	background-position: center;
+	padding: 12px;
+	z-index: 999;
+  }
+
+  .sidebar ul {
+	list-style: none;
+	padding: 0;
+	margin-top: 30px;
+  }
+
+  .sidebar li a{
+	display: block;
+	font-size: 15px;
+	line-height: 1.7;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	padding: 0 0 0 4px ;
+	margin-bottom: 10px;
+  }
+
+  .sidebar li a:hover {
+	color: #000;
+	background: #0ff;
+	padding: 0 0 0 8px ;
+  }
+
+  .sidebar .top {
+	margin-top: 30px;
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+  }
+ 
+  .sidebar .top:hover {
+	color: #ee37fa;
+  }
+
+  .sidebar .top::before {
+	content: "▲";
+	margin-right: 4px;
+  }
+  .sidebar .top a{
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+  }
+ 
+  .sidebar .top a:hover {
+	color: #ee37fa;
+  }
+
+ 
+  /* 右下側邊選單 延遲2秒 fadeIn出現 */
+@keyframes sidebarMove {
+	0%   { transform: translate(100px, 0);opacity: 0;}
+	100% { transform: translate(0, 0);opacity: 1;}
+}
+.sidebarMove {
+	animation: sidebarMove 1s ease-in-out forwards;
+}
+
+/* 右下側邊選單點擊 效果> 被點選項目的高亮 */
+.sidebarNow {
+	border: 1px solid #0ff;
+ }
